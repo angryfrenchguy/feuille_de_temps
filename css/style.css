@@ -1,0 +1,47 @@
+body {
+    font-family: sans-serif;
+/*    font-size: 14px;*/
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+/*    text-align: left;*/
+}
+
+.entete {
+/*    display: inline-block;*/
+    float: right;
+    width: 58.4%;
+    font-size: 20px;
+}
+
+.logo {
+    float: left;
+    height: 100px;
+/*    clear: left;*/
+    padding-top: 1.5rem;
+}
+
+#semaineDU, #semaineAU {
+    width: 175px;
+    line-height: normal;
+    height: 20px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+table {
+    border-collapse: collapse;
+/*    clear: both;*/
+}
+
+th {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+/*    font-size: 16px;*/
+    font-weight: 400;
+}
