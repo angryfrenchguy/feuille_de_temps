@@ -11,6 +11,7 @@ function semaine() {
         var element = document.createElement('input');
         element.type = "date";
         element.value = def;
+        element.autofocus = true;
         
         var semaineDU = document.getElementById('semaineDU');
         semaineDU.appendChild(element);
