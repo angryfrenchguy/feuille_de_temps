@@ -36,21 +36,3 @@ for(var key in json){if(!json.hasOwnProperty(key)){continue;}
 if('selected'==key){continue;}
 var option=$('<option />').val(key).append(json[key]);$('select',this).append(option);}
 $('select',this).children().each(function(){if($(this).val()==json['selected']||$(this).text()==$.trim(original.revert)){$(this).attr('selected','selected');}});}}},addInputType:function(name,input){$.editable.types[name]=input;}};$.fn.editable.defaults={name:'value',id:'id',type:'text',width:'auto',height:'auto',event:'click.editable',onblur:'cancel',loadtype:'GET',loadtext:'Loading...',placeholder:'Click to edit',loaddata:{},submitdata:{},ajaxoptions:{}};})(jQuery);
-
-//OK, so j'ai ajouté le TYPE 'datepicker', qui me permet d'utiliser mon calendrier datepicker *dans* jeditable. À tester, mais ça semble fonctionner.
-
-$.editable.addInputType('datepicker', {
-            element : function(settings, original) {
-                var input = $('<input >');
-
-                $(this).append(input);
-                return (input);
-            },
-            plugin : function(settings, original) {
-//                settings.onblur = 'ignore';
-                $(this).find('input').datepicker({
-                    'autoclose' : false,
-                    format : 'yyyy-dd-mm'
-                });
-            }
-        });
