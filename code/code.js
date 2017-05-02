@@ -1,6 +1,6 @@
 function semaine() {
     
-    $('#semaineDU').on('touchstart click', function() {
+    $('#semaineDU').on('touchstart dblclick', function() {
         
         var def = $('#semaineDU').html();
         
@@ -10,7 +10,7 @@ function semaine() {
         
         var element = document.createElement('input');
         element.type = "date";
-        element.value = def;
+        element.value = moment(def, 'D MMMM YYYY').format('L');
         element.autofocus = true;
         
         var semaineDU = document.getElementById('semaineDU');
