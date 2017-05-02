@@ -45,3 +45,10 @@ th {
 /*    font-size: 16px;*/
     font-weight: 400;
 }
+
+input[type="date"]
+{
+    border: none;
+    -webkit-appearance: none;
+    font-size: :16px;
+}
