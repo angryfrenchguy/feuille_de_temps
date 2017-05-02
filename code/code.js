@@ -17,7 +17,7 @@ function ediDate() {
 
 function semaine() {
     
-    $('#semaineDU').dblclick(function() {
+    $('#semaineDU').on('touchstart dblclick', function() {
         ajouterInput();
     })
     
