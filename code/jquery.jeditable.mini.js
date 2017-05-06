@@ -45,13 +45,5 @@ $.editable.addInputType('date', {
       var input = $('<input type="date">');
       $(this).append(input);
       return(input);
-  },
-  submit : function (settings, original) {
-      if (moment(original, 'L').isValid() == false) {
-          alert('date invalide')
-          return false;
-      } else {
-          return true;
-      }
   }
 });
