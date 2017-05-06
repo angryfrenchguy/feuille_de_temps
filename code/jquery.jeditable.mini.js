@@ -36,3 +36,22 @@ for(var key in json){if(!json.hasOwnProperty(key)){continue;}
 if('selected'==key){continue;}
 var option=$('<option />').val(key).append(json[key]);$('select',this).append(option);}
 $('select',this).children().each(function(){if($(this).val()==json['selected']||$(this).text()==$.trim(original.revert)){$(this).attr('selected','selected');}});}}},addInputType:function(name,input){$.editable.types[name]=input;}};$.fn.editable.defaults={name:'value',id:'id',type:'text',width:'auto',height:'auto',event:'click.editable',onblur:'cancel',loadtype:'GET',loadtext:'Loading...',placeholder:'Click to edit',loaddata:{},submitdata:{},ajaxoptions:{}};})(jQuery);
+
+
+//Code pour avoir le type: input 'date':
+
+$.editable.addInputType('date', {
+  element : function(settings, original) {
+      var input = $('<input type="date">');
+      $(this).append(input);
+      return(input);
+  },
+  submit : function (settings, original) {
+      if (moment(original, 'L').isValid() == false) {
+          alert('date invalide')
+          return false;
+      } else {
+          return true;
+      }
+  }
+});
