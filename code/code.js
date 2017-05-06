@@ -76,10 +76,10 @@ function edit() {
             type: 'POST',
             data: { data: miarrey },
             success: function(data) {
-//                data = JSON.parse(data);
-//                for(i = 0; i < data.length; i++) {
-//                    moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('LL') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
-//                };
+                data = JSON.parse(data);
+                for(i = 0; i < data.length; i++) {
+                    moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('LL') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
+                };
                 console.log(data);
             },
             error: function(data, textStatus, errorThrown) {
