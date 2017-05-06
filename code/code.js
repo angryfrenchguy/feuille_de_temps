@@ -5,6 +5,8 @@ function edit() {
         var lignes = table.rows.length;
         var miarrey = [];
         
+//        Je n'ai pas encore pu tester ce code. L'idée c'est d'ajouter le type date on the fly à ma table jeditable.
+        
         console.log($(this).attr('class'));
         $(this).attr('class') == 'edit editdate' ? $(this).find('input').attr('type', 'date') : void 0;
         console.log($(this).find('input'));
@@ -89,7 +91,7 @@ function edit() {
         return value;
         
     }, {
-        event: 'dblclick',
+        event: 'touchstart dblclick',
         onblur: 'submit',
         placeholder: ''
     });
