@@ -11,8 +11,6 @@ function edit() {
             }
         }
         
-//        Je n'ai pas encore pu tester ce code. L'idée c'est d'ajouter le type date on the fly à ma table jeditable.
-        
         for(i = 0; i < lignes; i++) {
             
             var ligne = table.rows[i];
