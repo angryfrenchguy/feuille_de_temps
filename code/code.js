@@ -7,8 +7,8 @@ function quelleClasse(ceci) {
         messettings = {
         event: 'touchstart dblclick',
         onblur: 'submit',
-        placeholder: '',
-        type: 'date'
+        placeholder: 'this',
+        type: ''
     };
             
         } else {
@@ -24,30 +24,40 @@ function quelleClasse(ceci) {
 }
 
 function editUn() {
-    
-    var messettings = {
+    $('.edit').each( function() {
+        
+        var classedate = $(this).attr('class');
+        var messettings;
+        
+        if(classedate == 'edit editdate') {
+        messettings = {
+        event: 'touchstart dblclick',
+        onblur: 'submit',
+        placeholder: '',
+        type: 'date'
+    };
+            
+        } else {
+        messettings = {
         event: 'touchstart dblclick',
         onblur: 'submit',
         placeholder: ''
-    };
-    
-    
-    $('.edit').editable(function(value, settings) {
-        
-//    console.log(this);
-//    console.log($(this));
-    console.log(messettings);
-        
-    messettings = quelleClasse(this);
-        
-    console.log(messettings);
-        
+    };        
+            
+        };
+                    
+      $(this).editable(function(value, messettings) {
         return value;
-    }, 
-        messettings
-    )
-    
+    }, messettings);
+        
+        
+    });
 }
+
+    
+    
+    
+
                      
 
 
