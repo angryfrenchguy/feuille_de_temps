@@ -65,10 +65,20 @@ input {
 */
 }
 
-
 input[type="date"]
 {
     border: none;
     -webkit-appearance: none;
     font-size: :16px;
+}
+
+/*C'est la classe des lignes quand je les déplacent avec sortable.*/
+.ui-sortable-helper { 
+    box-shadow: 5px 20px 10px 1px;
+}   
+/*    C'est le code qui empêche les cellules de s'écraser sur elles-mêmes.     */
+
+table tr.ui-sortable-helper {
+/*    min-width: 100px;*/
+    display: table !important;
 }
