@@ -1,10 +1,62 @@
+function quelleClasse(ceci) {
+        
+        var classedate = $(ceci).attr('class');
+        var messettings;
+        
+        if(classedate == 'edit editdate') {
+        messettings = {
+        event: 'touchstart dblclick',
+        onblur: 'submit',
+        placeholder: '',
+        type: 'date'
+    };
+            
+        } else {
+        messettings = {
+        event: 'touchstart dblclick',
+        onblur: 'submit',
+        placeholder: ''
+    };        
+            
+        }; 
+    return messettings;
+    
+}
+
+function editUn() {
+    
+    var messettings = {
+        event: 'touchstart dblclick',
+        onblur: 'submit',
+        placeholder: ''
+    };
+    
+    
+    $('.edit').editable(function(value, settings) {
+        
+//    console.log(this);
+//    console.log($(this));
+    console.log(messettings);
+        
+    messettings = quelleClasse(this);
+        
+    console.log(messettings);
+        
+        return value;
+    }, 
+        messettings
+    )
+    
+}
+                     
+
+
 function edit() {
     
     $('.edit').each(function() {
         
         var classedate = $(this).attr('class');
         var messettings;
-        console.log(classedate === 'editdate');
         
         if(classedate == 'edit editdate') {
         messettings = {
@@ -155,5 +207,13 @@ function semaine() {
         
         $('#semaineDU').html(moment(valeur).startOf('week').format('LL'));
         $('#semaineAU').html(moment($('#semaineDU').html(), 'LL').add(6, 'd').format('LL'));
+    });
+}
+
+function sortable() {
+    $( "#tbodyID" ).sortable({
+        stop: function(event, ui) {
+            editDeux();
+        }
     });
 }
