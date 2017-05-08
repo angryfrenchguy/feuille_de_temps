@@ -71,7 +71,7 @@
                 <td class="edit"></td>
             </tr>
             <tr>
-                <td class="edit editdate"></td>
+                <td class="edit"></td>
                 <td class="edit"></td>
                 <td class="edit"></td>
                 <td class="edit"></td>
@@ -84,7 +84,7 @@
                 <td class="edit"></td>
             </tr>
             <tr>
-                <td class="edit editdate"></td>
+                <td class="edit"></td>
                 <td class="edit"></td>
                 <td class="edit"></td>
                 <td class="edit"></td>
@@ -284,8 +284,27 @@
     <script>
         $(document).ready(function() {
             moment.locale('fr-CA');
-            edit();
-            semaine();  
+            editDeux();
+            semaine();
+            
+//    $('.editdate').each( function() {
+//    
+//    var rel = $(this).attr('class');
+//        
+//    if(rel == 'edit editdate') {
+//        $(this).editable('http://localhost:8888/jedi.php', {
+//        type: 'date',
+//        placeholder : "type : '" + rel + "'",
+//        });
+//    } else {
+//        $(this).editable('http://localhost:8888/jedi.php', {
+//        type: 'text',
+//        placeholder : "type : '" + rel + "'"
+//        });
+//    }
+//});
+            
+            
         });
     </script>
     
