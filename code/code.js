@@ -133,7 +133,7 @@ function editDeux() {
                 for(i = 0; i < data.length; i++) {
                     moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('LL') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
                 };
-                console.log(data);
+                calculateurDeKm();
             },
             error: function(data, textStatus, errorThrown) {
                 console.log("Statut: " + textStatus);
@@ -260,4 +260,26 @@ function chargerData(datesemaine) {
                 }
             }
     });
+}
+
+function calculateurDeKm() {
+    
+    var table = document.getElementById('tbodyID');
+    var lignes = table.rows.length;
+    
+    for(i = 0; i < lignes; i++) {
+        var somme;
+        var ligne = table.rows[i];
+        var cellulecinq = Number(ligne.cells[5].innerHTML);
+        var cellulequatre = Number(ligne.cells[4].innerHTML);
+
+        somme = cellulecinq - cellulequatre;
+
+        if (isNaN(somme) || somme === 0) {
+            ligne.cells[6].innerHTML = '';
+        } else {
+            ligne.cells[6].innerHTML = somme;
+        }
+    }
+    
 }
