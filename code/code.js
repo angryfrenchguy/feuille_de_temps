@@ -1,28 +1,3 @@
-function quelleClasse(ceci) {
-        
-        var classedate = $(ceci).attr('class');
-        var messettings;
-        
-        if(classedate == 'edit editdate') {
-        messettings = {
-        event: 'touchstart dblclick',
-        onblur: 'submit',
-        placeholder: 'this',
-        type: ''
-    };
-            
-        } else {
-        messettings = {
-        event: 'touchstart dblclick',
-        onblur: 'submit',
-        placeholder: ''
-    };        
-            
-        }; 
-    return messettings;
-    
-}
-
 function editUn() {
     $('.edit').each( function() {
         
@@ -37,6 +12,13 @@ function editUn() {
         type: 'date'
     };
             
+        } else if (classedate == 'edit editheure') {
+        messettings = {
+        event: 'touchstart dblclick',
+        onblur: 'submit',
+        placeholder: '',
+        type: 'time'
+    };
         } else {
         messettings = {
         event: 'touchstart dblclick',

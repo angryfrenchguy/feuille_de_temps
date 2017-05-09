@@ -47,3 +47,11 @@ $.editable.addInputType('date', {
       return(input);
   }
 });
+
+$.editable.addInputType('time', {
+  element : function(settings, original) {
+      var input = $('<input type="time">');
+      $(this).append(input);
+      return(input);
+  }
+});
