@@ -177,6 +177,12 @@ function semaine() {
         
         $('#semaineDU').html(moment(valeur).startOf('week').format('LL'));
         $('#semaineAU').html(moment($('#semaineDU').html(), 'LL').add(6, 'd').format('LL'));
+        
+        var debutdesemaine = $('#semaineDU').html();
+        
+        var datesemaine = moment(debutdesemaine, 'LL').format('YYYYww');
+        chargerData(datesemaine);
+        
     });
 }
 
@@ -186,5 +192,72 @@ function sortable() {
             editDeux();
         },
         axis:'y'
+    });
+}
+
+function chargerData(datesemaine) {
+    
+    var table = document.getElementById('tbodyID');
+    
+    $.ajax({
+        dataType: "json",
+        type: "POST",
+        url: "http://localhost:8888/retourduphp.php",
+        data: {data: datesemaine}
+    }).done(
+    function(data) {
+        
+        console.log(data);
+        
+        if(data.length === 0) {
+            for(i = 0; i < table.rows.length; i++) {
+                var ligne = table.rows[i];
+                
+                $(ligne.cells[0]).html("");
+                $(ligne.cells[1]).html("");
+                $(ligne.cells[2]).html("");
+                $(ligne.cells[3]).html("");
+                $(ligne.cells[4]).html("");
+                $(ligne.cells[5]).html("");
+                $(ligne.cells[6]).html("");
+                $(ligne.cells[7]).html("");
+                $(ligne.cells[8]).html("");
+                $(ligne.cells[9]).html("");
+                $(ligne.cells[10]).html("");
+            }
+        }
+        else {
+                for(i = 0; i < table.rows.length; i++) {
+                    var ligne = table.rows[i];
+                    
+                    var date = data[i].date;
+                    
+                    moment(date, 'L').isValid() ? date = moment(date, 'L').format('LL') : date = '';
+                    
+                    var contrat = data[i].contrat;
+                    var client = data[i].client;
+                    var bus = data[i].bus;
+                    var odoIN = data[i].odoIN;
+                    var odoOUT = data[i].odoOUT;
+                    var odoTOTAL = data[i].odoTOTAL;
+                    var tempsIN = data[i].tempsIN;
+                    var tempsOUT = data[i].tempsOUT;
+                    var tempsTOTAL = data[i].tempsTOTAL;
+                    var etat = data[i].etat;
+                    
+                    $(ligne.cells[0]).html(date);
+                    $(ligne.cells[1]).html(contrat);
+                    $(ligne.cells[2]).html(client);
+                    $(ligne.cells[3]).html(bus);
+                    $(ligne.cells[4]).html(odoIN);
+                    $(ligne.cells[5]).html(odoOUT);
+                    $(ligne.cells[6]).html(odoTOTAL);
+                    $(ligne.cells[7]).html(tempsIN);
+                    $(ligne.cells[8]).html(tempsOUT);
+                    $(ligne.cells[9]).html(tempsTOTAL);
+                    $(ligne.cells[10]).html(etat);
+                    
+                }
+            }
     });
 }
