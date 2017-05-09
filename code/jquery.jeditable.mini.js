@@ -40,13 +40,13 @@ $('select',this).children().each(function(){if($(this).val()==json['selected']||
 
 //Code pour avoir le type: input 'date'. L'exemple avait une gestion d'erreur que j'ai effacé. Peut-être remettre?
 
-$.editable.addInputType('date', {
-  element : function(settings, original) {
-      var input = $('<input type="date">');
-      $(this).append(input);
-      return(input);
-  }
-});
+//$.editable.addInputType('date', {
+//  element : function(settings, original) {
+//      var input = $('<input type="date">');
+//      $(this).append(input);
+//      return(input);
+//  }
+//});
 
 $.editable.addInputType('time', {
   element : function(settings, original) {
@@ -54,4 +54,33 @@ $.editable.addInputType('time', {
       $(this).append(input);
       return(input);
   }
+});
+
+$.editable.addInputType('date', {
+        element : function(settings, original) {
+            console.log($(this).val());
+            var input = $('<input type="date">');
+            $(this).append(input);
+            return(input);
+        },
+    submit: function (settings, original) {
+        var valeur = $(this).find('input').val();
+        var semaineDU = moment($('#semaineDU').html(), 'LL').format('L');
+        var semaineAU = moment($('#semaineAU').html(), 'LL').format('L');
+        
+        try {
+            if(moment(valeur, 'L').isBetween(semaineDU, semaineAU,'week', []) === false) throw "Ta date n'est pas dans la bonne semaine, dude.";
+        }
+        catch(err) {
+            alert(err);
+            $(this).html(0000-00-00);
+//            return 0000-00-00;
+        }
+        
+//        if(moment(valeur, 'L').isBetween(semaineDU, semaineAU,'week', []) === false) {
+////                alert("Ta date n'est pas dans la bonne semaine, dude.");
+////                $(this).find('input').val("Oups. Date invalide");
+//            throw "Ta date n'est pas dans la bonne semaine, dude.";
+//        }
+    }
 });

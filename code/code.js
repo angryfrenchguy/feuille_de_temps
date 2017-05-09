@@ -2,30 +2,15 @@ function editUn() {
     $('.edit').each( function() {
         
         var classedate = $(this).attr('class');
-        var messettings;
-        
-        if(classedate == 'edit editdate') {
-        messettings = {
-        event: 'click',
-        onblur: 'submit',
-        placeholder: '',
-        type: 'date'
-    };
-            
-        } else if (classedate == 'edit editheure') {
-        messettings = {
-        event: 'click',
-        onblur: 'submit',
-        placeholder: '',
-        type: 'time'
-    };
-        } else {
-        messettings = {
+        var messettings = {
         event: 'click',
         onblur: 'submit',
         placeholder: ''
-    };        
-            
+    };
+        if(classedate == 'edit editdate') {
+            messettings.type = 'date';
+        } else if (classedate == 'edit editheure') {
+            messettings.type = 'time';
         };
         
         $(this).editable(function(value, messettings) {
@@ -39,12 +24,6 @@ function editDeux() {
     var table = document.getElementById('tbodyID');
         var lignes = table.rows.length;
         var miarrey = [];
-        
-        var dateOrNot = function() {
-            if($(this).attr('class') == 'edit edidate') {
-                return 'date';
-            }
-        }
         
         for(i = 0; i < lignes; i++) {
             
@@ -79,11 +58,11 @@ function editDeux() {
             var semaineDU = moment($('#semaineDU').html(), 'LL').format('L');
             var semaineAU = moment($('#semaineAU').html(), 'LL').format('L');
             
-            if(moment(date, 'L').isBetween(semaineDU, semaineAU,'week', []) == false) {
-                alert("Ta date n'est pas dans la bonne semaine, dude.");
-                colonneDate.getElementsByTagName('input')[0].value = "Oups. Date invalide";
-                throw new Error("date invalide");
-            }
+//            if(moment(date, 'L').isBetween(semaineDU, semaineAU,'week', []) == false) {
+//                alert("Ta date n'est pas dans la bonne semaine, dude.");
+//                colonneDate.getElementsByTagName('input')[0].value = "Oups. Date invalide";
+//                throw new Error("date invalide");
+//            }
             
             var idx = i < 10 ? '0' + i : i;
             
@@ -264,4 +243,14 @@ function calculateurDeKm() {
         }
     }
     
+}
+
+function typeJTDate() {
+    $.editable.addInputType('date2', {
+        element : function(settings, original) {
+            var input = $('<input type="date">');
+            $(this).append(input);
+            return(input);
+        }
+    });
 }
