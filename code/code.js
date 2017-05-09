@@ -6,7 +6,7 @@ function editUn() {
         
         if(classedate == 'edit editdate') {
         messettings = {
-        event: 'touchstart dblclick',
+        event: 'click',
         onblur: 'submit',
         placeholder: '',
         type: 'date'
@@ -14,14 +14,14 @@ function editUn() {
             
         } else if (classedate == 'edit editheure') {
         messettings = {
-        event: 'touchstart dblclick',
+        event: 'click',
         onblur: 'submit',
         placeholder: '',
         type: 'time'
     };
         } else {
         messettings = {
-        event: 'touchstart dblclick',
+        event: 'click',
         onblur: 'submit',
         placeholder: ''
     };        
@@ -107,7 +107,7 @@ function editDeux() {
             miarrey.push(ligneObjet);
 };
         $.ajax({
-            url: 'http://localhost:8888/sauvegarde.php',
+            url: 'http://192.168.1.37:8888/feuille_de_route/php/sauvegarde.php',
             type: 'POST',
             data: { data: miarrey },
             success: function(data) {
@@ -184,7 +184,7 @@ function chargerData(datesemaine) {
     $.ajax({
         dataType: "json",
         type: "POST",
-        url: "http://localhost:8888/retourduphp.php",
+        url: "http://192.168.1.37:8888/feuille_de_route/php/retourduphp.php",
         data: {data: datesemaine}
     }).done(
     function(data) {
