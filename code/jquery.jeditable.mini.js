@@ -38,16 +38,6 @@ var option=$('<option />').val(key).append(json[key]);$('select',this).append(op
 $('select',this).children().each(function(){if($(this).val()==json['selected']||$(this).text()==$.trim(original.revert)){$(this).attr('selected','selected');}});}}},addInputType:function(name,input){$.editable.types[name]=input;}};$.fn.editable.defaults={name:'value',id:'id',type:'text',width:'auto',height:'auto',event:'click.editable',onblur:'cancel',loadtype:'GET',loadtext:'Loading...',placeholder:'Click to edit',loaddata:{},submitdata:{},ajaxoptions:{}};})(jQuery);
 
 
-//Code pour avoir le type: input 'date'. L'exemple avait une gestion d'erreur que j'ai effacé. Peut-être remettre?
-
-//$.editable.addInputType('date', {
-//  element : function(settings, original) {
-//      var input = $('<input type="date">');
-//      $(this).append(input);
-//      return(input);
-//  }
-//});
-
 $.editable.addInputType('time', {
   element : function(settings, original) {
       var input = $('<input type="time">');
@@ -74,13 +64,6 @@ $.editable.addInputType('date', {
         catch(err) {
             alert(err);
             $(this).html(0000-00-00);
-//            return 0000-00-00;
         }
-        
-//        if(moment(valeur, 'L').isBetween(semaineDU, semaineAU,'week', []) === false) {
-////                alert("Ta date n'est pas dans la bonne semaine, dude.");
-////                $(this).find('input').val("Oups. Date invalide");
-//            throw "Ta date n'est pas dans la bonne semaine, dude.";
-//        }
     }
 });
