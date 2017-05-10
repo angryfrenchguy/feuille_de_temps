@@ -95,6 +95,7 @@ function editDeux() {
                     moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('ll') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
                 };
                 calculateurDeKm();
+                lesHeures();
             },
             error: function(data, textStatus, errorThrown) {
                 console.log("Statut: " + textStatus);
@@ -253,4 +254,38 @@ function typeJTDate() {
             return(input);
         }
     });
+}
+
+function lesHeures() {
+    var table = document.getElementById('tbodyID');
+    var lignes = table.rows.length;
+    
+    for(i = 0; i < lignes; i++) {
+        
+        var row = table.rows[i];
+        
+        console.log(row.cells[7].innerHTML)
+        
+        var heureINpasFormatee = row.cells[7].innerHTML;
+        var heureOUTpasFormatee = row.cells[8].innerHTML;
+        
+        var heureINformatee = moment(heureINpasFormatee, 'hh:mm');
+        var heureOUTformatee = moment(heureOUTpasFormatee, 'hh:mm');
+        
+        var heureTOTALE = heureOUTformatee - heureINformatee;
+        
+        if(heureTOTALE <= 0) {
+            heureOUTformatee.add(1,'d');
+        }
+        
+        var heureTOTALEformatee = heureOUTformatee.diff(heureINformatee, 'hours', true);
+        
+        heureTOTALEformatee = Math.ceil(heureTOTALEformatee * 4) / 4;
+        
+        if(isNaN(heureTOTALEformatee)) {
+            row.cells[9].innerHTML = "";
+        } else {
+            row.cells[9].innerHTML = heureTOTALEformatee;
+        }
+    }
 }
