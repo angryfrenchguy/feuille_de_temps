@@ -89,3 +89,41 @@ table tr.ui-sortable-helper {
 /*    min-width: 100px;*/
     display: table !important;
 }
+
+#boitedenotes {
+    width: 100%;
+/*    text-decoration: underline;*/
+    
+}
+
+#boitedenotes p {
+    border-bottom: 1px solid black;
+    line-height: 14px;
+    width: 100%;
+}
+
+#tableconteneurfuel {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tableconteneurfuel td {
+    border: none;
+    padding: 0;
+}
+
+#tableun, #tabledeux{
+    width: 100%;
+}
+
+#tableun td, #tabledeux td {
+    border: 1px solid black;
+}
+
+#tableun th {
+    border-left: 1px solid black;
+}
+
+#tabledeux th {
+    border-right: 1px solid black;
+}

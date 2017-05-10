@@ -169,8 +169,6 @@ function chargerData(datesemaine) {
     }).done(
     function(data) {
         
-        console.log(data);
-        
         if(data.length === 0) {
             for(i = 0; i < table.rows.length; i++) {
                 var ligne = table.rows[i];

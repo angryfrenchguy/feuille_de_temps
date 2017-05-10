@@ -21,7 +21,8 @@
 <!--    ATTENTION : Un TYPE datepicker custom a été ajouté à jquery.jeditable.mini.js. Si tu changes le fichier, ça va casser.-->
     <script src="code/jquery.jeditable.mini.js"></script>
 <!--    Mon code-->
-    <script src="code/code.js"></script> 
+    <script src="code/code.js"></script>
+    <script src="code/jquery.limitlines.js"></script>
 </head>
     
 <body>
@@ -280,17 +281,127 @@
     
     </table>
     
+<!--    Petit hack qui limite le nombre de mots que je peux mettre dans les notes contenteditable.-->
+    <div id="boitedenotes"><p contenteditable="true" onkeypress="return (this.innerText.length <= 200)" contenteditable="true"><span contenteditable="false">Notes:  </span></p>
+        <p contenteditable="true"></p>
+        <p contenteditable="true"></p>
+    </div>
+    
+    <table id="tableconteneurfuel">
+        <tr>
+            <td>
+                <table id="tableun">
+        <thead>
+            <tr>
+                <th>DATE<br>JOUR/MOIS</th>
+                <th>N°<br>AUTOBUS</th>
+                <th>ODOMÈTRE</th>
+                <th>ESSENCE</th>
+                <th>PROVINCE<br>ÉTAT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+            </td>
+            <td>
+                <table id="tabledeux">
+        <thead>
+            <tr>
+                <th>DATE<br>JOUR/MOIS</th>
+                <th>N°<br>AUTOBUS</th>
+                <th>ODOMÈTRE</th>
+                <th>ESSENCE</th>
+                <th>PROVINCE<br>ÉTAT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+            </td>
+        </tr>
+    </table>
+    
     <script>
         $(document).ready(function() {
             moment.locale('fr-CA');
             editUn();
             semaine();
             sortable();
-            typeJTDate();
-            
+            typeJTDate(); //Utilisé?
         });
-        
     </script>
+
     
 </body>
 
