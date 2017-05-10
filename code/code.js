@@ -125,7 +125,7 @@ function semaine() {
         
         var element = document.createElement('input');
         element.type = "date";
-        element.value = moment(def, 'll').format('L');
+        element.value = moment(def, 'll').isValid() ? moment(def, 'll').format('L') : moment().format('L');
         element.autofocus = true;
         
         var semaineDU = document.getElementById('semaineDU');
