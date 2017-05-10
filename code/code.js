@@ -43,7 +43,7 @@ function editDeux() {
             var idUnique = $('#semaineDU').html();
             
             var id = i;
-            var date = colonneDate.getElementsByTagName('input')[0] ? colonneDate.getElementsByTagName('input')[0].value : moment(ligne.cells[0].innerHTML, 'LL').format('L');
+            var date = colonneDate.getElementsByTagName('input')[0] ? colonneDate.getElementsByTagName('input')[0].value : moment(ligne.cells[0].innerHTML, 'll').format('L');
             var contrat = colonneContrat.getElementsByTagName('input')[0] ? colonneContrat.getElementsByTagName('input')[0].value : ligne.cells[1].innerHTML;
             var client = colonneClient.getElementsByTagName('input')[0] ? colonneClient.getElementsByTagName('input')[0].value : ligne.cells[2].innerHTML;
             var bus = colonneBus.getElementsByTagName('input')[0] ? colonneBus.getElementsByTagName('input')[0].value : ligne.cells[3].innerHTML;
@@ -55,8 +55,8 @@ function editDeux() {
             var tempsTOTAL = colonneTempsTOTAL.getElementsByTagName('input')[0] ? colonneTempsTOTAL.getElementsByTagName('input')[0].value : ligne.cells[9].innerHTML;
             var  etat= colonneEtat.getElementsByTagName('input')[0] ? colonneEtat.getElementsByTagName('input')[0].value : ligne.cells[10].innerHTML;
     
-            var semaineDU = moment($('#semaineDU').html(), 'LL').format('L');
-            var semaineAU = moment($('#semaineAU').html(), 'LL').format('L');
+            var semaineDU = moment($('#semaineDU').html(), 'll').format('L');
+            var semaineAU = moment($('#semaineAU').html(), 'll').format('L');
             
 //            if(moment(date, 'L').isBetween(semaineDU, semaineAU,'week', []) == false) {
 //                alert("Ta date n'est pas dans la bonne semaine, dude.");
@@ -92,7 +92,7 @@ function editDeux() {
             success: function(data) {
                 data = JSON.parse(data);
                 for(i = 0; i < data.length; i++) {
-                    moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('LL') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
+                    moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('ll') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
                 };
                 calculateurDeKm();
             },
@@ -106,7 +106,7 @@ function editDeux() {
 function faireUnID(date, rang) {
         var table = document.getElementById('tbodyID');
         var lignes = table.rows.length;
-        var dateFormat = moment(date, 'LL').format('YYYYww');
+        var dateFormat = moment(date, 'll').format('YYYYww');
         var idUnique = dateFormat + rang;
         
         return idUnique;
@@ -124,7 +124,7 @@ function semaine() {
         
         var element = document.createElement('input');
         element.type = "date";
-        element.value = moment(def, 'LL').format('L');
+        element.value = moment(def, 'll').format('L');
         element.autofocus = true;
         
         var semaineDU = document.getElementById('semaineDU');
@@ -136,12 +136,12 @@ function semaine() {
     $('#semaineDU').focusout(function() {
         var valeur = $('#semaineDU').find('input').val();
         
-        $('#semaineDU').html(moment(valeur).startOf('week').format('LL'));
-        $('#semaineAU').html(moment($('#semaineDU').html(), 'LL').add(6, 'd').format('LL'));
+        $('#semaineDU').html(moment(valeur).startOf('week').format('ll'));
+        $('#semaineAU').html(moment($('#semaineDU').html(), 'll').add(6, 'd').format('ll'));
         
         var debutdesemaine = $('#semaineDU').html();
         
-        var datesemaine = moment(debutdesemaine, 'LL').format('YYYYww');
+        var datesemaine = moment(debutdesemaine, 'll').format('YYYYww');
         chargerData(datesemaine);
         
     });
@@ -193,7 +193,7 @@ function chargerData(datesemaine) {
                     
                     var date = data[i].date;
                     
-                    moment(date, 'L').isValid() ? date = moment(date, 'L').format('LL') : date = '';
+                    moment(date, 'L').isValid() ? date = moment(date, 'L').format('ll') : date = '';
                     
                     var contrat = data[i].contrat;
                     var client = data[i].client;
@@ -207,12 +207,12 @@ function chargerData(datesemaine) {
                     var etat = data[i].etat;
                     
                     $(ligne.cells[0]).html(date);
-                    $(ligne.cells[1]).html(contrat);
+                    contrat === '0' ? $(ligne.cells[1]).html("") : $(ligne.cells[1]).html(contrat);
                     $(ligne.cells[2]).html(client);
-                    $(ligne.cells[3]).html(bus);
-                    $(ligne.cells[4]).html(odoIN);
-                    $(ligne.cells[5]).html(odoOUT);
-                    $(ligne.cells[6]).html(odoTOTAL);
+                    bus === '0' ? $(ligne.cells[1]).html("") : $(ligne.cells[3]).html(bus);
+                    odoIN === '0' ? $(ligne.cells[1]).html("") : $(ligne.cells[4]).html(odoIN);
+                    odoOUT === '0' ? $(ligne.cells[1]).html("") : $(ligne.cells[5]).html(odoOUT);
+                    odoTOTAL === '0' ? $(ligne.cells[1]).html("") : $(ligne.cells[6]).html(odoTOTAL);
                     $(ligne.cells[7]).html(tempsIN);
                     $(ligne.cells[8]).html(tempsOUT);
                     $(ligne.cells[9]).html(tempsTOTAL);
