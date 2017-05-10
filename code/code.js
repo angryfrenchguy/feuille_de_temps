@@ -244,16 +244,6 @@ function calculateurDeKm() {
     
 }
 
-function typeJTDate() {
-    $.editable.addInputType('date2', {
-        element : function(settings, original) {
-            var input = $('<input type="date">');
-            $(this).append(input);
-            return(input);
-        }
-    });
-}
-
 function lesHeures() {
     var table = document.getElementById('tbodyID');
     var lignes = table.rows.length;

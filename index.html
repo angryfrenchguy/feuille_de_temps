@@ -26,6 +26,7 @@
 </head>
     
 <body>
+    
     <div>
         <img class="logo" src="css/images/excellence.png" alt="logo">
         <h1>FEUILLE DE ROUTE</h1>
@@ -280,17 +281,26 @@
         </tbody>
     
     </table>
-    
-<!--    Petit hack qui limite le nombre de mots que je peux mettre dans les notes contenteditable.-->
-    <div id="boitedenotes"><p contenteditable="true" onkeypress="return (this.innerText.length <= 200)" contenteditable="true"><span contenteditable="false">Notes:  </span></p>
-        <p contenteditable="true"></p>
-        <p contenteditable="true"></p>
+    <br>
+    <div id="boitedenotes">
+        <table style="width:100%">
+            <tr>
+                <td contenteditable="true" onkeypress="return (this.innerText.length <= 200)" style="border: none; border-bottom: 1px solid black"><span contenteditable="false"    >Notes:  </span></td>
+            </tr>
+            <tr>
+               <td contenteditable="true" onkeypress="return (this.innerText.length <= 200)" style="border: none; border-bottom: 1px solid black"></td> 
+            </tr>
+            <tr>
+                <td contenteditable="true" onkeypress="return (this.innerText.length <= 200)" style="border: none; border-bottom: 1px solid black"></td>
+            </tr>
+        </table>
     </div>
+    <br>
     
     <table id="tableconteneurfuel">
         <tr>
             <td>
-                <table id="tableun">
+                <table id="tableun" class="tablesfuel">
         <thead>
             <tr>
                 <th>DATE<br>JOUR/MOIS</th>
@@ -340,7 +350,7 @@
     </table>
             </td>
             <td>
-                <table id="tabledeux">
+                <table id="tabledeux" class="tablesfuel">
         <thead>
             <tr>
                 <th>DATE<br>JOUR/MOIS</th>
@@ -398,7 +408,6 @@
             editUn();
             semaine();
             sortable();
-            typeJTDate(); //Utilisé?
         });
     </script>
 

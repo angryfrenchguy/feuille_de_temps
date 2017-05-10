@@ -97,7 +97,7 @@ table tr.ui-sortable-helper {
 }
 
 #boitedenotes p {
-    border-bottom: 1px solid black;
+/*    border-bottom: 1px solid black;*/
     line-height: 14px;
     width: 100%;
 }
@@ -110,6 +110,10 @@ table tr.ui-sortable-helper {
 #tableconteneurfuel td {
     border: none;
     padding: 0;
+}
+
+#tableconteneurfuel th {
+    font-size: .75em;
 }
 
 #tableun, #tabledeux{
