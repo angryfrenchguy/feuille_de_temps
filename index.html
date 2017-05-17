@@ -14,15 +14,13 @@
 <!--JQuery-->
     <script src="code/jquery-3.2.0.min.js"></script>
     <script src="code/jquery-ui.min.js"></script>
-<!--    <script src="code/datepicker-fr-CA.js"></script>-->
-<!--    ATTENTION : jquery.ui.touch-punch.min.js a du code custom qui doit être copié/collé si on change/update le fichier.-->
+<!--    ATTENTION : Il y a une vesrsion custom de jquery.ui.touch-punch.min.js mais pour l'instant j'utilise la version vanille.-->
     <script src="code/jquery.ui.touch-punch.nomods.js"></script>
     <script src="code/moment-with-locales.js"></script>
-<!--    ATTENTION : Un TYPE datepicker custom a été ajouté à jquery.jeditable.mini.js. Si tu changes le fichier, ça va casser.-->
+<!--    ATTENTION : Des TYPE date et time custom a été ajouté à jquery.jeditable.mini.js. Si tu changes le fichier, ça va casser.-->
     <script src="code/jquery.jeditable.mini.js"></script>
 <!--    Mon code-->
     <script src="code/code.js"></script>
-    <script src="code/jquery.limitlines.js"></script>
 </head>
     
 <body>
@@ -284,6 +282,8 @@
     <br>
     <div id="boitedenotes">
         <table style="width:100%">
+            
+<!--            Utiliser jeditabel type:textarea rows 3?-->
             <tr>
                 <td contenteditable="true" onkeypress="return (this.innerText.length <= 200)" style="border: none; border-bottom: 1px solid black"><span contenteditable="false"    >Notes:  </span></td>
             </tr>

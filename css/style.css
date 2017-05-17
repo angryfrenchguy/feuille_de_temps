@@ -7,10 +7,6 @@ h1 {
     text-align: center;
 }
 
-p {
-/*    text-align: left;*/
-}
-
 .entete {
 /*    display: inline-block;*/
     float: right;
@@ -21,7 +17,6 @@ p {
 .logo {
     float: left;
     height: 100px;
-/*    clear: left;*/
     padding-top: 1.5rem;
 }
 
@@ -97,14 +92,13 @@ table tr.ui-sortable-helper {
 }
 
 #boitedenotes p {
-/*    border-bottom: 1px solid black;*/
     line-height: 14px;
     width: 100%;
 }
 
 #tableconteneurfuel {
     width: 100%;
-    border-collapse: collapse;
+/*    border-collapse: collapse;*/
 }
 
 #tableconteneurfuel td {
