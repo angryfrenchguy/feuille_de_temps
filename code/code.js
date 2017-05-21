@@ -86,7 +86,7 @@ function editDeux() {
             miarrey.push(ligneObjet);
 };
         $.ajax({
-            url: 'http://localhost :8888/feuille_de_route/php/sauvegarde.php',
+            url: 'http://localhost:8888/feuille_de_route/php/sauvegarde.php',
             type: 'POST',
             data: { data: miarrey },
             success: function(data) {
