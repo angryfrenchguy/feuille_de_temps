@@ -83,7 +83,14 @@ function editDeux() {
                 etat: etat
             };
             
+//            if(date != 'Invalid date') {
+//                miarrey.push(ligneObjet);
+//                console.log(miarrey);
+//            }
+            
             miarrey.push(ligneObjet);
+            console.log(miarrey);
+            
 };
         $.ajax({
             url: 'http://localhost:8888/feuille_de_route/php/sauvegarde.php',
@@ -92,8 +99,10 @@ function editDeux() {
             success: function(data) {
                 data = JSON.parse(data);
                 for(i = 0; i < data.length; i++) {
+                    console.log(data[i].date);
                     moment(data[i].date, 'L').isValid() ? document.getElementById('tbodyID').rows[i].cells[0].innerHTML = moment(data[i].date, 'L').format('ll') : document.getElementById('tbodyID').rows[i].cells[0].innerHTML = "";
                 };
+                console.log(data);
                 calculateurDeKm();
                 lesHeures();
             },
@@ -252,7 +261,7 @@ function lesHeures() {
         
         var row = table.rows[i];
         
-        console.log(row.cells[7].innerHTML)
+//        console.log(row.cells[7].innerHTML)
         
         var heureINpasFormatee = row.cells[7].innerHTML;
         var heureOUTpasFormatee = row.cells[8].innerHTML;
