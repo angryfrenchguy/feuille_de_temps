@@ -93,7 +93,7 @@ function editDeux() {
             
 };
         $.ajax({
-            url: 'http://localhost:8888/feuille_de_route/php/sauvegarde.php',
+            url: 'php/sauvegarde.php',
             type: 'POST',
             data: { data: miarrey },
             success: function(data) {
@@ -173,7 +173,7 @@ function chargerData(datesemaine) {
     $.ajax({
         dataType: "json",
         type: "POST",
-        url: "http://localhost:8888/feuille_de_route/php/retourduphp.php",
+        url: "php/retourduphp.php",
         data: {data: datesemaine}
     }).done(
     function(data) {

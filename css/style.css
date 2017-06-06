@@ -103,7 +103,7 @@ table tr.ui-sortable-helper {
 
 #tableconteneurfuel td {
     border: none;
-    padding: 0;
+    padding: 5;
 }
 
 #tableconteneurfuel th {
